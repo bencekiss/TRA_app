@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
+ActiveRecord::Schema.define(version: 20170304161722) do
+=======
 ActiveRecord::Schema.define(version: 20170304163534) do
+>>>>>>> 03597a4b1083de410e883b1cceefc4eec27bdb37
 
 
   create_table "accounts", force: :cascade do |t|
@@ -33,6 +37,19 @@ ActiveRecord::Schema.define(version: 20170304163534) do
     t.index ["email"], name: "index_accounts_on_email", unique: true
   end
 
+<<<<<<< HEAD
+  create_table "crono_jobs", force: :cascade do |t|
+    t.string   "job_id",                               null: false
+    t.text     "log",               limit: 1073741823
+    t.datetime "last_performed_at"
+    t.boolean  "healthy"
+    t.datetime "created_at",                           null: false
+    t.datetime "updated_at",                           null: false
+    t.index ["job_id"], name: "index_crono_jobs_on_job_id", unique: true
+  end
+
+=======
+>>>>>>> 03597a4b1083de410e883b1cceefc4eec27bdb37
   create_table "messages", force: :cascade do |t|
     t.text     "body"
     t.string   "to_number"
