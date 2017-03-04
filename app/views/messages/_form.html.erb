@@ -12,6 +12,14 @@
   <% end %>
 
   <div class="actions">
-    <%= f.submit %>
-  </div>
+    <%= form_for @message do |f| %>
+
+  <p><%= f.label :to %></p>
+  <p><%= f.telephone_field :to %></p>
+  <p><%= f.label :body %></p>
+  <p><%= f.text_area :body %></p>
+  <p><%= f.submit "Send Message" %></p>
+
+<% end %>
+</div>
 <% end %>

@@ -61,6 +61,11 @@ class MessagesController < ApplicationController
     end
   end
 
+  def perform
+    puts "Crono task is running"
+    Message.send_message('4164344772', 'Test message')
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_message
