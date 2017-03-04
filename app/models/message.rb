@@ -1,6 +1,5 @@
 class Message < ApplicationRecord
 
-
   def self.send_message(to, body)
     @client = Twilio::REST::Client.new(Rails.application.secrets.twilio_sid, Rails.application.secrets.twilio_token)
     @twilio_number = "+16479322220"
