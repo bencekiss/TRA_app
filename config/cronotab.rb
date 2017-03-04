@@ -15,4 +15,4 @@
 #
 
 
-Crono.perform(MessagesController).every 1.minute
+Crono.perform(MessagesController).every 15.minute
