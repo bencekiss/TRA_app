@@ -6,7 +6,7 @@ class Schedule < ApplicationRecord
     schedules = Schedule.all
     schedules.each do |schedule|
       if Time.now.hour.utc == schedule.schedule_time.hour
-        Message.send_message(schedule.account.phone, create_primary_template)
+        Message.send_message(schedule.account.phone, create_primary_template, schedule.id)
       end
     end
   end
@@ -16,7 +16,7 @@ class Schedule < ApplicationRecord
     messages = Message.where("created_at >= ?", Time.zone.now.beginning_of_day-1)
     messages.each do |message|
       if message.status == 'delivered' && (Time.now.utc.hour - message.created_at) >= 1
-        Message.send_message(message.account.phone, create_primary_rescue)
+        Message.send_message(message.account.phone, create_primary_rescue, message.schedule.id)
       end
     end
   end
@@ -26,8 +26,8 @@ class Schedule < ApplicationRecord
     messages = Message.where("created_at >= ?", Time.zone.now.beginning_of_day-1)
     messages.each do |message|
       if message.status == 'delivered' && (Time.now.utc.hour - message.created_at) >= 1
-        Message.send_message(message.account.secondary_phone, create_secondary_template)
-        Message.send_message(message.account.phone, create_primary_notification)
+        Message.send_message(message.account.secondary_phone, create_secondary_template, message.schedule.id)
+        Message.send_message(message.account.phone, create_primary_notification, message.schedule.id)
       end
     end
   end
@@ -37,8 +37,8 @@ class Schedule < ApplicationRecord
     messages = Message.where("created_at >= ?", Time.zone.now.beginning_of_day-1)
     messages.each do |message|
       if message.status == 'delivered' && (Time.now.utc.hour - message.created_at) >= 1
-        Message.send_message(message.account.secondary_phone, create_secondary_rescue)
-        Message.send_message(message.account.phone, create_primary_notification)
+        Message.send_message(message.account.secondary_phone, create_secondary_rescue, message.schedule.id)
+        Message.send_message(message.account.phone, create_primary_notification, message.schedule.id)
       end
     end
   end
@@ -48,8 +48,8 @@ class Schedule < ApplicationRecord
     messages = Message.where("created_at >= ?", Time.zone.now.beginning_of_day-1)
     messages.each do |message|
       if message.status == 'delivered' && (Time.now.utc.hour - message.created_at) >= 1
-        Message.send_message(message.account.emergency_phone, create_emergency_template)
-        Message.send_message(message.account.phone, create_primary_emergency_notification)
+        Message.send_message(message.account.emergency_phone, create_emergency_template, message.schedule.id)
+        Message.send_message(message.account.phone, create_primary_emergency_notification, message.schedule.id)
       end
     end
   end

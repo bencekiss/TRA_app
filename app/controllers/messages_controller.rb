@@ -58,21 +58,6 @@ class MessagesController < ApplicationController
     end
   end
 
-  def perform
-    schedules = Schedule.all
-    schedules.each do |schedule|
-      if Time.now.hour.utc == schedule.schedule_time.hour
-        #send message
-        Message.send_message
-      else
-      end
-
-    end
-
-    messages_to_send = []
-    messages_to_send << Message.where
-    Message.send_message('4164344772', 'Test message')
-  end
 
   private
     # Use callbacks to share common setup or constraints between actions.
