@@ -15,6 +15,7 @@ class MessagesController < ApplicationController
   # GET /messages/new
   def new
     @message = Message.new
+
   end
 
   # GET /messages/1/edit
@@ -26,15 +27,11 @@ class MessagesController < ApplicationController
   def create
     @message = Message.new(message_params)
 
-    respond_to do |format|
       if @message.save
-        format.html { redirect_to @message, notice: 'Message was successfully created.' }
-        format.json { render :show, status: :created, location: @message }
+        Message.send_message(message_params[:to_number], message_params[:body])
       else
-        format.html { render :new }
-        format.json { render json: @message.errors, status: :unprocessable_entity }
+        render new_account_message_path
       end
-    end
   end
 
   # PATCH/PUT /messages/1
@@ -74,6 +71,6 @@ class MessagesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def message_params
-      params.fetch(:message, {})
+      params.require(:message).permit(:body, :to_number, :from_number)
     end
 end

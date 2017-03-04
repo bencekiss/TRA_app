@@ -54,7 +54,6 @@ ActiveRecord::Schema.define(version: 20170304185743) do
 
   create_table "schedules", force: :cascade do |t|
     t.text     "template"
-    t.integer  "message_id"
     t.integer  "account_id"
     t.datetime "schedule_time"
     t.datetime "created_at",    null: false
