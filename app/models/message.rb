@@ -25,7 +25,7 @@ class Message < ApplicationRecord
     #updating status of old messages to avoid sending secondary replies to people multiple times. I dunno. Ask Gee.
     messages = Message.all
     messages.each do |message|
-      if Time.now.utc.hour - message.created_at.hour > 2
+      if Time.now.utc.hour - message.created_at.hour >= 2
         message.status = "no reply"
         message.save
       end
