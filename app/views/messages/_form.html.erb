@@ -12,7 +12,7 @@
   <% end %>
 
   <div class="actions">
-    <%= form_for [:account, @message] do |f| %>
+    <%= form_for [:account, @message], url: '/send_message' do |f| %>
 
   <p><%= f.label :to %></p>
   <p><%= f.telephone_field :to_number %></p>
