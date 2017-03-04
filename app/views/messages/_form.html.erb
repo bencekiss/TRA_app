@@ -1,10 +1,10 @@
-<%= form_for(message) do |f| %>
+<%= form_for([:account, @message]) do |f| %>
   <% if message.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(message.errors.count, "error") %> prohibited this message from being saved:</h2>
+      <h2><%= pluralize([:account, @message].errors.count, "error") %> prohibited this message from being saved:</h2>
 
       <ul>
-      <% message.errors.full_messages.each do |message| %>
+      <% [:account, @message].errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>
@@ -12,10 +12,10 @@
   <% end %>
 
   <div class="actions">
-    <%= form_for @message do |f| %>
+    <%= form_for [:account, @message] do |f| %>
 
   <p><%= f.label :to %></p>
-  <p><%= f.telephone_field :to %></p>
+  <p><%= f.telephone_field :to_number %></p>
   <p><%= f.label :body %></p>
   <p><%= f.text_area :body %></p>
   <p><%= f.submit "Send Message" %></p>
