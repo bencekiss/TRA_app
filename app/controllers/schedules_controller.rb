@@ -67,13 +67,6 @@ class SchedulesController < ApplicationController
     Schedule.send_secondary_message
     Schedule.send_secondary_rescue
     Schedule.send_secondary_emergency_message
-
-
-
-
-
-
-
   end
 
   private
