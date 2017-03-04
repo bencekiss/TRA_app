@@ -61,6 +61,13 @@ class SchedulesController < ApplicationController
     end
   end
 
+  def perform
+    Schedule.send_reminders
+    Schedule.send_second_message
+    Schedule.update_old_messages
+    
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_schedule

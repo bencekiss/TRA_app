@@ -14,8 +14,23 @@ class Message < ApplicationRecord
   end
 
   def receive_message
-    #what to do when we receive a message
+    params[:from]
+    params[:body]
+    #save message to table with status "received"
+    #change status of most recent message TO that same phone number to "replied"
+
   end
 
+  def update_old_messages
+    #updating status of old messages to avoid sending secondary replies to people multiple times. I dunno. Ask Gee.
+    messages = Message.all
+    messages.each do |message|
+      if Time.now.utc.hour - message.created_at.hour > 2
+        message.status = "no reply"
+        message.save
+      end
+    end
+
+  end
 
 end
