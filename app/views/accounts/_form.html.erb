@@ -10,7 +10,60 @@
       </ul>
     </div>
   <% end %>
-  
+  <div class="caregivers">
+    <h2>Caregivers</h2>
+    <div class="field">
+      <%= f.label :email, "Email address" %><br>
+      <%= f.text_field :email, placeholder: "eg. ex@mp.le" %>
+    </div>
+    <div class="field">
+      <%= f.label :phone, "Phone number" %><br>
+      <%= f.text_field :phone, placeholder: "eg. +12345678910" %>
+    </div>
+    <div class="field">
+      <%= f.label :name, "Primary caregiver name" %><br>
+      <%= f.text_field :name, placeholder: "eg. Queen Elizabeth II" %>
+    </div>
+    <div class="field">
+      <%= f.label :secondary_name, "Secondary caregiver name" %><br>
+      <%= f.text_field :secondary_name, placeholder: "eg. prime minister Justin Trudeau" %>
+    </div>
+    <div class="field">
+      <%= f.label :secondary_email, "Secondary caregiver email address" %><br>
+      <%= f.text_field :secondary_email, placeholder: "eg. trudeau@canada.ca" %>
+    </div>
+    <div class="field">
+      <%= f.label :secondary_phone, "Secondary caregiver phone number" %><br>
+      <%= f.text_field :secondary_phone, placeholder: "eg. +12345678910" %>
+    </div>
+    <div class="field">
+      <%= f.label :emergency_name, "Emergency caregiver name" %><br>
+      <%= f.text_field :emergency_name, placeholder: "eg. Mayor John Tory" %>
+    </div>
+    <div class="field">
+      <%= f.label :emergency_phone, "Emergency caregiver phone number" %><br>
+      <%= f.text_field :emergency_phone, placeholder: "eg. +12345678910" %>
+    </div>
+  </div>
+  <div class="patient">
+    <h2>Patient info</h2>
+    <div class="field">
+      <%= f.label :patient_name, "Patient name" %><br>
+      <%= f.text_field :patient_name, placeholder: "eg. Johnny Black" %>
+    </div>
+    <div class="field">
+      <%= f.label :patient_number, "Patient phone number" %><br>
+      <%= f.text_field :patient_number, placeholder: "eg. +12345678910" %>
+    </div>
+    <div class="field">
+      <%= f.label :patient_address, "Patient home address" %><br>
+      <%= f.text_field :patient_address, placeholder: "eg. 101 College st, apt. 203" %>
+    </div>
+    <div class="field">
+      <%= f.label :patient_notes, "Notes, dietary restrictions, any info to be sent in emergency notification" %><br>
+      <%= f.text_area :patient_notes, placeholder: "eg. the extra key is under the flowerpot!" %>
+    </div>
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>
