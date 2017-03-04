@@ -10,10 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-ActiveRecord::Schema.define(version: 20170304161722) do
-
-
+ActiveRecord::Schema.define(version: 20170304163534) do
 
   create_table "accounts", force: :cascade do |t|
     t.string   "email",            null: false
@@ -35,7 +32,6 @@ ActiveRecord::Schema.define(version: 20170304161722) do
     t.index ["email"], name: "index_accounts_on_email", unique: true
   end
 
-
   create_table "crono_jobs", force: :cascade do |t|
     t.string   "job_id",                               null: false
     t.text     "log",               limit: 1073741823
@@ -45,7 +41,6 @@ ActiveRecord::Schema.define(version: 20170304161722) do
     t.datetime "updated_at",                           null: false
     t.index ["job_id"], name: "index_crono_jobs_on_job_id", unique: true
   end
-
 
   create_table "messages", force: :cascade do |t|
     t.text     "body"

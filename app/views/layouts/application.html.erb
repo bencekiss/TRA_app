@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>TRAApp</title>
+    <title>DementiApp</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -9,6 +9,19 @@
   </head>
 
   <body>
+    <header>
+      <nav class="navbar">
+          <ul class="navlist">
+            <% if current_user %>
+              <li class="navelement"><%= link_to "My_data", account_path(current_user.id) %></li>
+              <li class="navelement"><%= link_to "Sign Out", :logout, method: :post %></li>
+            <% else %>
+              <li class="navelement"><%= link_to "Sign In", new_account_session_path %></li>
+              <li class="navelement"><%= link_to "Registration", new_account_path %></li>
+            <% end %>
+          </ul>
+      </nav>
+    </header>
     <%= yield %>
   </body>
 </html>
