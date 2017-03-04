@@ -56,8 +56,9 @@ ActiveRecord::Schema.define(version: 20170304185743) do
     t.text     "template"
     t.integer  "account_id"
     t.datetime "schedule_time"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.integer  "frequency_hours", default: 24
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
   end
 
 end

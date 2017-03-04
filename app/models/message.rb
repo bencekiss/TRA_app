@@ -1,7 +1,7 @@
 class Message < ApplicationRecord
 
   belongs_to :schedule
-
+  has_one :account, through: :schedule
 
   def self.send_message(to, body)
     @client = Twilio::REST::Client.new(Rails.application.secrets.twilio_sid, Rails.application.secrets.twilio_token)
