@@ -1,5 +1,6 @@
 <% if current_user && current_user.id == @account.id %>
 
+
   Patient Name: <%= @schedule.account.patient_name %><br>
   Frequency: <%= @schedule.frequency_hours %><br>
   Primary Phone: <%= @schedule.account.phone %><br>
