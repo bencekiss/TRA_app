@@ -6,12 +6,10 @@ class SchedulesController < ApplicationController
   def receive
     # find the last message sent to the number
     @relevant_message = Message.where("to_number = ? AND status = ?", params[:From], "delivered").order("created_at DESC").first
-    byebug
     if @relevant_message
       @schedule = Schedule.find(@relevant_message.schedule_id)
       Message.receive_message(params, @relevant_message, @schedule.id)
       head :ok, content_type: "text/html"
-
     else
       @message = Message.where("to_number = ?", params[:From]).order("created_at DESC").first
       Message.create({
@@ -89,7 +87,7 @@ class SchedulesController < ApplicationController
     Schedule.send_second_message
     Schedule.send_secondary_message
     Schedule.send_secondary_rescue
-    Schedule.send_secondary_emergency_message
+    Schedule.send_emergency_message
   end
 
   private
