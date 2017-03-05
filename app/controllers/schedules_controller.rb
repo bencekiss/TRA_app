@@ -9,7 +9,7 @@ class SchedulesController < ApplicationController
 
     if @relevant_message
       @schedule = Schedule.find(@relevant_message.schedule_id)
-      Message.receive_message(params, @relevant_message, @schedule.id)
+      Message.receive_message(params, @relevant_message, @schedule)
       head :ok, content_type: "text/html"
     else
       @message = Message.where("to_number = ?", params[:From]).order("created_at DESC").first
@@ -94,8 +94,8 @@ class SchedulesController < ApplicationController
     Schedule.send_reminders
     Schedule.send_primary_rescue
     Schedule.send_secondary_message
-    # Schedule.send_secondary_rescue
-    # Schedule.send_emergency_message
+    Schedule.send_secondary_rescue
+    Schedule.send_emergency_message
   end
 
   private

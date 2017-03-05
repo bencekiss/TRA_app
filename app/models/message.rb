@@ -42,20 +42,28 @@ class Message < ApplicationRecord
     message
   end
 
-  def self.receive_message(params, message_to_change, schedule_id)
+  def self.receive_message(params, message_to_change, schedule)
 
+    # schedule.messages.each do |m|
+    #   if schedule.schedule_time.min == m.created_at.min
+    #     if m == message_to_change
+    #       m.update(status: "replied")
+    #     else
+    #       m.update(status: "no_reply")
+    #     end
+    #   end
+    # end
+    # # save message to table with status "received"
+
+    #change status of most recent message TO that same phone number to "replied"
+    message_to_change.update(status: "replied")
     message = Message.create({
       body: params[:Body],
       to_number: params[:To],
       from_number: params[:From],
       status: 'received',
-      schedule_id: schedule_id
+      schedule_id: schedule.id
       })
-    message
-    #save message to table with status "received"
-
-    #change status of most recent message TO that same phone number to "replied"
-    message_to_change.update(status: "replied")
 
   end
 
