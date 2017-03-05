@@ -28,11 +28,20 @@ class Message < ApplicationRecord
 
   end
 
-  def receive_message
-    params[:from]
-    params[:body]
+  def self.receive_message(params, message_to_change, schedule_id)
+
+    message = Message.create({
+      body: params[:Body],
+      to_number: params[:To],
+      from_number: params[:From],
+      status: 'received',
+      schedule_id: schedule_id
+      })
+    message
     #save message to table with status "received"
+
     #change status of most recent message TO that same phone number to "replied"
+    message_to_change.update(status: "replied")
 
   end
 

@@ -67,6 +67,6 @@ class MessagesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def message_params
-      params.require(:message).permit(:body, :to_number, :from_number)
+      params.require(:message).permit(:body, :to_number, :from_number, :schedule_id, :status)
     end
 end

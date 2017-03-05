@@ -12,6 +12,6 @@ Rails.application.routes.draw do
   get 'login' => 'account_sessions#new', :as => :login
   post 'logout' => 'account_sessions#destroy', :as => :logout
 
-  post '/sms' => 'messages#receive_message'
+  post '/sms' => 'schedules#receive'
 
 end
