@@ -10,8 +10,9 @@
 
   <body>
     <header>
+      <%= image_tag 'logo', id: "logo" %>
+
       <nav class="navbar">
-        <%= image_tag 'logo', id: "logo" %>
           <ul class="navlist">
             <% if current_user %>
               <li class="navelement"><%= link_to "My Account", account_path(current_user.id) %></li>
