@@ -6,7 +6,7 @@ class SchedulesController < ApplicationController
   def receive
     # find the last message sent to the number
     @relevant_message = Message.where("to_number = ? AND status = ?", params[:From], "delivered").order("created_at DESC").first
-    byebug
+
     if @relevant_message
       @schedule = Schedule.find(@relevant_message.schedule_id)
       Message.receive_message(params, @relevant_message, @schedule.id)
@@ -32,6 +32,13 @@ class SchedulesController < ApplicationController
   # GET /schedules/1
   # GET /schedules/1.json
   def show
+    @account = Account.find(params[:account_id])
+    @schedule = Schedule.find(params[:id])
+    @incoming_messages = Message.where("schedule_id = ? AND status = ?", @schedule.id, "received")
+    @sent_messages = Message.where("schedule_id = ? AND status = ?", @schedule.id, "delivered")
+    @answered_messages = Message.where("schedule_id = ? AND status = ?", @schedule.id, "replied")
+
+
   end
 
   # GET /schedules/new

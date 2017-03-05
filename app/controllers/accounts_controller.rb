@@ -10,6 +10,7 @@ class AccountsController < ApplicationController
   # GET /accounts/1
   # GET /accounts/1.json
   def show
+    @account = Account.find(params[:id])
   end
 
   # GET /accounts/new

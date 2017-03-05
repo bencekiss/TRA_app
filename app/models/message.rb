@@ -6,10 +6,10 @@ class Message < ApplicationRecord
   #sends verification code to new accounts to verify phone numbers
   def self.send_code(account, verification)
     body = "Here is your verification code: " + verification
-    self.send_message(account.phone, body)
+    self.send_verification(account.phone, body)
   end
 
-  def self.send_message(to, body, *schedule_id)
+  def self.send_verification(to, body, schedule_id)
     @client = Twilio::REST::Client.new(Rails.application.secrets.twilio_sid, Rails.application.secrets.twilio_token)
     @twilio_number = "+16479322220"
     @client.account.messages.create(
@@ -17,7 +17,26 @@ class Message < ApplicationRecord
       to: to,
       body: body
     )
+    byebug
+    message = Message.create(
+      body: body,
+      to_number: to,
+      from_number: @twilio_number,
+      status: 'delivered',
+      schedule_id: schedule_id
+      )
 
+  end
+
+  def self.send_message(to, body, schedule_id)
+    @client = Twilio::REST::Client.new(Rails.application.secrets.twilio_sid, Rails.application.secrets.twilio_token)
+    @twilio_number = "+16479322220"
+    @client.account.messages.create(
+      from: @twilio_number,
+      to: to,
+      body: body
+    )
+    byebug
     message = Message.create(
       body: body,
       to_number: to,

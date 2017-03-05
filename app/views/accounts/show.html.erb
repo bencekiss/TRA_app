@@ -1,4 +1,16 @@
 <p id="notice"><%= notice %></p>
-
+<p><strong>Patient name:</strong> <%= @account.patient_name %></p>
+<p><strong>Patient phone number:</strong> <%= @account.patient_number %></p>
+<p><strong>Patient address:</strong> <%= @account.patient_address %></p>
+<p><strong>Patient notes:</strong> <%= @account.patient_notes %></p>
+<p>The primary caregiver is currently set to <%= @account.name %>.</p>
+<p>The primary phone number is <%= @account.phone %>.</p>
+<p>The secondary caregiver is set to <%= @account.secondary_name %>.</p>
+<p>The secondary phone number is <%= @account.secondary_phone %>.</p>
+<p>The emergency contact is set to <%= @account.emergency_name %>.</p>
+<p>The emergency phone number is <%= @account.emergency_phone %>.<p>
 <%= link_to 'Edit', edit_account_path(@account) %> |
 <%= link_to 'Back', accounts_path %>
+
+
+<%= render '/schedules/schedule', schedules: @account.schedules %>

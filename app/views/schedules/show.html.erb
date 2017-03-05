@@ -1,4 +1,40 @@
 <p id="notice"><%= notice %></p>
+<p>This scheduled notification started at <%= @schedule.schedule_time.utc %></p>
+<p>with a frequency of <em><%= @schedule.frequency_hours %></em> hours.</p>
+<%= link_to 'Edit', edit_account_schedule_path(@account.id, @schedule.id) %> |
+<%= link_to 'Back', account_path(@account.id) %>
 
-<%= link_to 'Edit', edit_schedule_path(@schedule) %> |
-<%= link_to 'Back', schedules_path %>
+<h2>Messages regarding this scheduled notification</h2>
+<h4>Incoming messages</h4>
+<% @incoming_messages.each do |message| %>
+  <div class="message">
+    <p>
+      This message was sent by
+      <%= message.from_number == message.account.phone ? message.account.name : (message.from_number == message.account.secondary_phone ? message.account.secondary_name : message.account.emergency_name) %>
+    </p>
+    <p><em><%= message.body %></em></p><br />
+  </div>
+<% end%>
+
+<h4>Sent but not yet answered messages</h4>
+<% @sent_messages.each do |message| %>
+  <div class="message">
+    <p>
+      This message was sent to
+      <%= message.to_number == message.account.phone ? message.account.name : (message.to_number == message.account.secondary_phone ? message.account.secondary_name : message.account.emergency_name) %>
+       and has not been answered yet.
+    </p>
+    <p><em><%= message.body %></em></p><br />
+  </div>
+<% end%>
+<h4>Sent and answered messages</h4>
+<% @answered_messages.each do |message| %>
+  <div class="message">
+    <p>
+      This message was sent to
+      <%= message.to_number == message.account.phone ? message.account.name : (message.to_number == message.account.secondary_phone ? message.account.secondary_name : message.account.emergency_name) %>
+      .
+    </p>
+    <p><em><%= message.body %></em></p><br />
+  </div>
+<% end%>

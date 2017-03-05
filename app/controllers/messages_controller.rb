@@ -26,7 +26,7 @@ class MessagesController < ApplicationController
   # POST /messages.json
   def create
     @message = Message.new(message_params)
-
+      
       if @message.save
         Message.send_message(message_params[:to_number], message_params[:body])
       else

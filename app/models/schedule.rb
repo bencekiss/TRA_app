@@ -7,7 +7,8 @@ class Schedule < ApplicationRecord
   def self.send_reminders
     schedules = Schedule.all
     schedules.each do |schedule|
-      if Time.now.utc.hour == schedule.schedule_time.hour
+      if Time.now.utc.hour == schedule.schedule_time.utc.hour
+        
         Message.send_message(schedule.account.phone, schedule.create_primary_template, schedule.id)
       end
     end
