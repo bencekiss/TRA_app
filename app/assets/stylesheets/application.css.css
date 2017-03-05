@@ -1,0 +1,138 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+*{
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: 'Titillium Web', helvetica, arial, sans-serif;
+  font-size: 16px;
+}
+
+html {
+  background-color: teal;
+}
+
+body {
+  background-color: white;
+  padding: 0px 10px 10px 10px;
+  max-height: 100%;
+  margin: 0 10px;
+}
+
+h1 {
+  font-size: 2em;
+  width: 100%;
+  text-align: center;
+  margin-top: 20px;
+}
+
+h2 {
+  text-align: center;
+  font-size: 24px;
+  padding-bottom: 20px;
+}
+
+.signup {
+  text-align: center;
+  font-size: 24px;
+  padding-bottom: 20px;
+  text-decoration: none;
+
+}
+
+.navelement {
+  list-style-type: none;
+}
+.navlist{
+  margin: 33px, 0;
+}
+
+header {
+  height: 50px;
+  width: 100%;
+  display: block;
+
+}
+
+header .navbar li{
+  list-style: none;
+  display: inline;
+  float: right;
+  padding: 10px 5px 5px 5px;
+}
+
+#logo {
+ width: 130px;
+ display: inline;
+ float: left;
+ padding: 10px;
+}
+
+main {
+  margin: auto 0;
+  max-height: 100%;
+}
+
+label {
+  font-size: 24px;
+}
+
+input, label, textarea {
+  width: 90%;
+  display: block;
+  text-align: center;
+  margin: 0 auto;
+}
+
+input, textarea {
+  height: 30px;
+  font-size: 24px;
+}
+
+select {
+  height: 36px;
+  font-size: 30px;
+  text-align: center;
+  border: 2px solid black;
+  margin: 10px auto;
+  display: block;
+}
+
+a{
+  text-decoration: none;
+  padding: 5px;
+  background-color: teal;
+  border: 2px solid black;
+  border-radius: 10px;
+  color: white;
+}
+
+a:hover {
+  cursor: pointer;
+  font-size: 1.1em;
+}
+table {
+  margin: 10px;
+}
+
+.head-link{
+  background-color: rgba(0,0,0,0);
+  border: none;
+}
+
+td {
+  padding: 10px;
+}

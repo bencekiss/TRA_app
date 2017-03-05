@@ -13,10 +13,8 @@
   <body>
     <header>
       <nav class="navbar">
-
-
           <div class="logo-wrapper">
-            <% if current_user %>
+          <% if current_user %>
             <%= link_to image_tag('logo', id: "logo"), account_path(current_user), class: "head-link" %>
           <% else %>
             <%= link_to image_tag('logo', id: "logo"), root_path, class: "head-link"%>
@@ -31,7 +29,7 @@
             <%= link_to "Log In", new_account_session_path %>
             <%= link_to "Sign Up", new_account_path %>
           <% end %>
-        </ul>
+          </ul>
       </nav>
     </header>
     <main>

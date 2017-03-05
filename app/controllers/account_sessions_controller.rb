@@ -1,6 +1,10 @@
 class AccountSessionsController < ApplicationController
   def new
-    @account = Account.new
+    if current_user
+      redirect_to account_path(current_user.id)
+    else
+      @account = Account.new
+    end
   end
 
   def create

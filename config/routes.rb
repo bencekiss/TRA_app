@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-    root 'account_sessions#new'
+  root 'account_sessions#new'
 
   resources :accounts do
     resources :confirmations, only: [:new, :create]
