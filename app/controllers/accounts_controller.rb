@@ -1,5 +1,6 @@
 class AccountsController < ApplicationController
   before_action :set_account, only: [:show, :edit, :update, :destroy]
+  before_action :verify, exclude: [:new, :create]
 
   # GET /accounts
   # GET /accounts.json
@@ -20,6 +21,7 @@ class AccountsController < ApplicationController
 
   # GET /accounts/1/edit
   def edit
+    @account = Account.find(params[:id])
   end
 
   # POST /accounts
@@ -41,6 +43,7 @@ class AccountsController < ApplicationController
   # PATCH/PUT /accounts/1.json
   def update
     respond_to do |format|
+    
       if @account.update(account_params)
         format.html { redirect_to @account, notice: 'Account was successfully updated.' }
         format.json { render :show, status: :ok, location: @account }
@@ -67,9 +70,15 @@ class AccountsController < ApplicationController
       @account = Account.find(params[:id])
     end
 
+    def verify
+      @account = current_user
+    end
+
     # Never trust parameters from the scary internet, only allow the white list through.
     def account_params
-      params.require(:account).permit(:email,
+      params.require(:account).permit(:name,
+                                      :phone,
+                                      :email,
                                       :password,
                                       :password_confirmation,
                                       :phone,

@@ -1,3 +1,5 @@
+<% if current_user && current_user.id == @account.id %>
+
 Patient Name: <%= @schedule.account.patient_name %><br>
 Frequency: <%= @schedule.frequency_hours %><br>
 Primary Phone: <%= @schedule.account.phone %><br>
@@ -45,3 +47,7 @@ Primary Phone: <%= @schedule.account.phone %><br>
     <p><em><%= message.body %></em></p><br />
   </div>
 <% end%>
+<% elsif current_user %>
+<%= link_to "Go to your account", account_path(current_user) %>
+<% else %>
+<% end %>
