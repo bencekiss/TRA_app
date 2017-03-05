@@ -10,11 +10,11 @@
 
   <body>
     <header>
-      <h1 class="header-name">Memini</h1>
       <nav class="navbar">
+        <%= image_tag 'logo', id: "logo" %>
           <ul class="navlist">
             <% if current_user %>
-              <li class="navelement"><%= link_to "My_data", account_path(current_user.id) %></li>
+              <li class="navelement"><%= link_to "My Account", account_path(current_user.id) %></li>
               <li class="navelement"><%= link_to "Sign Out", :logout, method: :post %></li>
             <% else %>
               <li class="navelement"><%= link_to "Sign In", new_account_session_path %></li>
@@ -23,6 +23,8 @@
           </ul>
       </nav>
     </header>
-    <%= yield %>
+    <main>
+      <%= yield %>
+    </main>
   </body>
 </html>
