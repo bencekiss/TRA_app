@@ -104,6 +104,10 @@ label {
   font-size: 24px;
 }
 
+input {
+  border-radius: 5px;
+}
+
 input, label, textarea {
   width: 90%;
   display: block;
