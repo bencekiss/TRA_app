@@ -14,19 +14,19 @@
     <header>
       <nav class="navbar">
         <ul class="navlist">
-      <% if current_user %>
-        <%= link_to image_tag('logo', id: "logo"), account_path(current_user), class: "head-link" %>
-      <% else %>
-        <%= link_to image_tag('logo', id: "logo"), root_path, class: "head-link"%>
-      <% end %>
-            <% if current_user %>
-              <li class="navelement"><%= link_to "My Account", account_path(current_user.id) %></li>
-              <li class="navelement"><%= link_to "Sign Out", :logout, method: :post %></li>
-            <% else %>
-              <li class="navelement"><%= link_to "Log In", new_account_session_path %></li>
-              <li class="navelement"><%= link_to "Sign Up", new_account_path %></li>
-            <% end %>
-          </ul>
+          <% if current_user %>
+            <li class="navelement"><%= link_to image_tag('logo', id: "logo"), account_path(current_user), class: "head-link" %></li>
+          <% else %>
+            <li class="navelement"><%= link_to image_tag('logo', id: "logo"), root_path, class: "head-link"%></li>
+          <% end %>
+          <% if current_user %>
+            <li class="navelement"><%= link_to "My Account", account_path(current_user.id) %></li>
+            <li class="navelement"><%= link_to "Sign Out", :logout, method: :post %></li>
+          <% else %>
+            <li class="navelement"><%= link_to "Log In", new_account_session_path %></li>
+            <li class="navelement"><%= link_to "Sign Up", new_account_path %></li>
+          <% end %>
+        </ul>
       </nav>
     </header>
     <main>
