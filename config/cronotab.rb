@@ -15,4 +15,4 @@
 #
 
 
-Crono.perform(MessagesController).every 1.hours, at: {min: 00}
+Crono.perform(SchedulesController).every 1.minute, at: { seconds: 00 }

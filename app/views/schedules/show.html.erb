@@ -1,8 +1,15 @@
+Patient Name: <%= @schedule.account.patient_name %><br>
+Frequency: <%= @schedule.frequency_hours %><br>
+Primary Phone: <%= @schedule.account.phone %><br>
+<br>
+
+
 <p id="notice"><%= notice %></p>
 <p>This scheduled notification started at <%= @schedule.schedule_time.utc %></p>
 <p>with a frequency of <em><%= @schedule.frequency_hours %></em> hours.</p>
 <%= link_to 'Edit', edit_account_schedule_path(@account.id, @schedule.id) %> |
 <%= link_to 'Back', account_path(@account.id) %>
+
 
 <h2>Messages regarding this scheduled notification</h2>
 <h4>Incoming messages</h4>

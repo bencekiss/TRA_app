@@ -2,8 +2,6 @@ class Schedule < ApplicationRecord
   has_many :messages
   belongs_to :account
 
-
-
   def self.send_reminders
     schedules = Schedule.all
     schedules.each do |schedule|
@@ -15,20 +13,21 @@ class Schedule < ApplicationRecord
   end
 
   def self.send_second_message
-    Message.update_old_messages
     messages = Message.where("created_at >= ?", Time.zone.now.beginning_of_day-1)
     messages.each do |message|
-      if message.status == 'delivered' && (Time.now.utc.hour - message.created_at) >= 1
+      if message.status == 'delivered'
+        #  && (Time.now.hour.to_i - message.created_at.hour.to_i) >= 1
         Message.send_message(message.account.phone, create_primary_rescue, message.schedule.id)
       end
     end
+    Message.update_old_messages
   end
 
   def self.send_secondary_message
     Message.update_old_messages
-    messages = Message.where("created_at >= ?", Time.zone.now.beginning_of_day-1)
+    messages = Message.where("created_at >= ?", Time.now.utc.beginning_of_day-1)
     messages.each do |message|
-      if message.status == 'delivered' && (Time.now.utc.hour - message.created_at) >= 1
+      if message.status == 'delivered' && (Time.now.hour.to_i - message.created_at.hour.to_i) >= 1
         Message.send_message(message.account.secondary_phone, create_secondary_template, message.schedule.id)
         Message.send_message(message.account.phone, create_primary_notification, message.schedule.id)
       end
@@ -37,9 +36,9 @@ class Schedule < ApplicationRecord
 
   def self.send_secondary_rescue
     Message.update_old_messages
-    messages = Message.where("created_at >= ?", Time.zone.now.beginning_of_day-1)
+    messages = Message.where("created_at >= ?", Time.now.utc.beginning_of_day-1)
     messages.each do |message|
-      if message.status == 'delivered' && (Time.now.utc.hour - message.created_at) >= 1
+      if message.status == 'delivered' && (Time.now.hour.to_i - message.created_at.hour.to_i) >= 1
         Message.send_message(message.account.secondary_phone, create_secondary_rescue, message.schedule.id)
         Message.send_message(message.account.phone, create_primary_notification, message.schedule.id)
       end
@@ -48,16 +47,14 @@ class Schedule < ApplicationRecord
 
   def self.send_emergency_message
     Message.update_old_messages
-    messages = Message.where("created_at >= ?", Time.zone.now.beginning_of_day-1)
+    messages = Message.where("created_at >= ?", Time.now.utc.beginning_of_day-1)
     messages.each do |message|
-      if message.status == 'delivered' && (Time.now.utc.hour - message.created_at) >= 1
+      if message.status == 'delivered' && (Time.now.hour.to_i - message.created_at.hour.to_i) >= 1
         Message.send_message(message.account.emergency_phone, create_emergency_template, message.schedule.id)
         Message.send_message(message.account.phone, create_primary_emergency_notification, message.schedule.id)
       end
     end
   end
-
-
 
   def create_primary_template
     body = "Hi there #{self.account.name}! Have you seen if #{self.account.patient_name} is doing ok? Reply YES to confirm."
