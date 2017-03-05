@@ -56,11 +56,15 @@ h2 {
 .navelement {
   list-style-type: none;
 }
+.navlist{
+  margin: 33px, 0;
+}
 
 header {
   height: 50px;
   width: 100%;
   display: block;
+
 }
 
 header .navbar li{
