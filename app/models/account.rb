@@ -15,4 +15,8 @@ class Account < ApplicationRecord
     Message.send_code(account, verification)
   end
 
+  def verify
+    current_user.id == @account.id || current_user.id == @schedule.account.id
+  end
+
 end
