@@ -38,8 +38,8 @@ class Message < ApplicationRecord
       from_number: APP_NUMBER,
       status: 'delivered',
       schedule_id: schedule_id
-      )
-
+    )
+    message
   end
 
   def self.receive_message(params, message_to_change, schedule_id)

@@ -92,10 +92,10 @@ class SchedulesController < ApplicationController
 
   def perform
     Schedule.send_reminders
-    Schedule.send_second_message
+    Schedule.send_primary_rescue
     Schedule.send_secondary_message
-    Schedule.send_secondary_rescue
-    Schedule.send_emergency_message
+    # Schedule.send_secondary_rescue
+    # Schedule.send_emergency_message
   end
 
   private

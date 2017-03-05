@@ -5,31 +5,75 @@ class Schedule < ApplicationRecord
   def self.send_reminders
     schedules = Schedule.all
     schedules.each do |schedule|
-      if Time.now.utc.hour == schedule.schedule_time.utc.hour
-        
+
+      if Time.now.utc.min == schedule.schedule_time.utc.min
+
         Message.send_message(schedule.account.phone, schedule.create_primary_template, schedule.id)
+
       end
+      # schedule.messages.each do |message|
+      #   diff = Time.now.min.to_i - message.created_at.min.to_i
+      #   if message && message.status == 'delivered' && schedule && diff >= 1 && diff < 2
+      #     Message.send_message(message.account.phone, schedule.create_primary_rescue, schedule.id)
+      #   end
+      # end
     end
+
   end
 
-  def self.send_second_message
-    messages = Message.where("created_at >= ?", Time.zone.now.beginning_of_day-1)
-    messages.each do |message|
-      if message.status == 'delivered'
-        #  && (Time.now.hour.to_i - message.created_at.hour.to_i) >= 1
-        Message.send_message(message.account.phone, create_primary_rescue, message.schedule.id)
+  def self.send_primary_rescue
+    # messages = Message.where("created_at >= ?", Time.zone.now.beginning_of_day-1)
+    # messages.each do |message|
+    #   schedule = Schedule.find(message.schedule_id)
+    #   if message.status == 'delivered' && schedule
+    #     #  && (Time.now.hour.to_i - message.created_at.hour.to_i) >= 1
+    #     Message.send_message(message.account.phone, schedule.create_primary_rescue, schedule.id)
+    #   end
+    # end
+    # Message.update_old_messages
+
+
+    Schedule.all.each do |schedule|
+      sc_time = schedule.schedule_time.utc.min
+      schedule.messages.each do |message|
+        diff = Time.now.min.to_i - message.created_at.min.to_i
+        ms_time = message.created_at.utc.min
+        if message && schedule && ms_time == sc_time && message.status == "delivered" && diff >= 1 && diff < 2
+          Message.send_message(message.account.phone, schedule.create_primary_rescue, schedule.id)
+        end
       end
     end
-    Message.update_old_messages
+    # schedule = Schedule.find(message.schedule_id)
+    # diff = Time.now.min.to_i - message.created_at.min.to_i
+
+
   end
 
   def self.send_secondary_message
-    Message.update_old_messages
-    messages = Message.where("created_at >= ?", Time.now.utc.beginning_of_day-1)
-    messages.each do |message|
-      if message.status == 'delivered' && (Time.now.hour.to_i - message.created_at.hour.to_i) >= 1
-        Message.send_message(message.account.secondary_phone, create_secondary_template, message.schedule.id)
-        Message.send_message(message.account.phone, create_primary_notification, message.schedule.id)
+    # messages = Message.where("created_at >= ?", Time.now.utc.beginning_of_day-1)
+    # messages.each do |message|
+    #   schedule = Schedule.find(message.schedule_id)
+    #   if message.status == 'delivered' && (Time.now.min.to_i - message.created_at.min.to_i) >= 2 && schedule
+    #     Message.send_message(message.account.secondary_phone, schedule.create_secondary_template, schedule.id)
+    #     # Message.send_message(message.account.phone, create_primary_notification, message.schedule.id)
+    #   end
+    # end
+    # Message.update_old_messages
+
+    # message = Message.where("created_at >= ?", Time.zone.now.beginning_of_day-1).order("created_at DESC").first
+    # schedule = Schedule.find(message.schedule_id)
+    # diff = Time.now.min.to_i - message.created_at.min.to_i
+    # if message && message.status == 'delivered' && schedule && diff >= 2 && diff < 3
+    #   Message.send_message(message.account.secondary_phone, schedule.create_secondary_template, schedule.id)
+    # end
+    Schedule.all.each do |schedule|
+      sc_time = schedule.schedule_time.utc.min
+      schedule.messages.each do |message|
+        diff = Time.now.min.to_i - message.created_at.min.to_i
+        ms_time = message.created_at.utc.min
+        if message && schedule && ms_time == sc_time && message.status == "delivered" && diff >= 2 && diff < 3
+          Message.send_message(message.account.secondary_phone, schedule.create_secondary_template, schedule.id)
+        end
       end
     end
   end
