@@ -12,13 +12,13 @@
 
   <body>
     <header>
+      <nav class="navbar">
+        <ul class="navlist">
       <% if current_user %>
         <%= link_to image_tag('logo', id: "logo"), account_path(current_user), class: "head-link" %>
       <% else %>
-        <%= link_to image_tag('logo', id: "logo"), root_path %>
+        <%= link_to image_tag('logo', id: "logo"), root_path, class: "head-link"%>
       <% end %>
-      <nav class="navbar">
-          <ul class="navlist">
             <% if current_user %>
               <li class="navelement"><%= link_to "My Account", account_path(current_user.id) %></li>
               <li class="navelement"><%= link_to "Sign Out", :logout, method: :post %></li>
