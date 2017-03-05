@@ -58,10 +58,8 @@ class SchedulesController < ApplicationController
     respond_to do |format|
       if @schedule.save
         format.html { redirect_to account_schedule_path(params[:account_id], @schedule.id), notice: 'Schedule was successfully created.' }
-        format.json { render :show, status: :created, location: @schedule }
       else
         format.html { render :new }
-        format.json { render json: @schedule.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -85,7 +83,7 @@ class SchedulesController < ApplicationController
   def destroy
     @schedule.destroy
     respond_to do |format|
-      format.html { redirect_to schedules_url, notice: 'Schedule was successfully destroyed.' }
+      format.html { redirect_to account_path, notice: 'Schedule was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

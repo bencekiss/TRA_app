@@ -3,7 +3,7 @@
 
   Patient Name: <%= @schedule.account.patient_name %><br>
   Frequency: <%= @schedule.frequency_hours %><br>
-  Primary Phone: <%= @schedule.account.phone %><br>
+  Primary Phone: <%= number_to_phone(@schedule.account.phone.to_i) %><br>
   <br>
 
 

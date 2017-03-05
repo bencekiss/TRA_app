@@ -3,15 +3,15 @@
 <div class="account-details">
   <h2>Account Details</h2>
   <p><strong>Patient name:</strong> <%= @account.patient_name %></p>
-  <p><strong>Patient phone number:</strong> <%= @account.patient_number %></p>
+  <p><strong>Patient phone number:</strong> <%= number_to_phone(@account.patient_number.to_i) %></p>
   <p><strong>Patient address:</strong> <%= @account.patient_address %></p>
   <p><strong>Patient notes:</strong> <%= @account.patient_notes %></p>
-  <p><strong>Primary caregiver:</strong> <%= @account.name %>.</p>
-  <p><strong>Primary phone:</strong><%= @account.phone %>.</p>
-  <p><strong>Secondary caregiver:</strong> <%= @account.secondary_name %>.</p>
-  <p><strong>Secondary phone:</strong> <%= @account.secondary_phone %>.</p>
-  <p><strong>Emergency caregiver:</strong> <%= @account.emergency_name %>.</p>
-  <p><strong>Emergency phone:</strong> <%= @account.emergency_phone %>.<p>
+  <p><strong>Primary caregiver:</strong> <%= @account.name %></p>
+  <p><strong>Primary phone:</strong><%= number_to_phone(@account.phone.to_i) %></p>
+  <p><strong>Secondary caregiver:</strong> <%= @account.secondary_name %></p>
+  <p><strong>Secondary phone:</strong> <%= number_to_phone(@account.secondary_phone.to_i) %></p>
+  <p><strong>Emergency caregiver:</strong> <%= @account.emergency_name %></p>
+  <p><strong>Emergency phone:</strong> <%= number_to_phone(@account.emergency_phone.to_i) %><p>
   <%= link_to 'Edit', edit_account_path(@account) %> |
   <%= link_to 'Back', accounts_path %>
 </div>
