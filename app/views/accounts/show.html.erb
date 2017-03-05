@@ -15,6 +15,7 @@
 <%= link_to 'Back', accounts_path %>
 
 <h2>Schedules</h2>
+<%= link_to "Create a new schedule", new_account_schedule_path(current_user) %>
 <%= render '/schedules/schedule', schedules: @account.schedules %>
 <% elsif current_user %>
 <%= link_to "Go to your account", account_path(current_user) %>

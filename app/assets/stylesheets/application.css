@@ -27,11 +27,22 @@ html {
 
 body {
   background-color: white;
-  padding: 20px 0 10px 20px;
+  padding: 0px 10px 10px 10px;
+  max-height: 100%;
 }
 
 h1 {
   font-size: 2em;
+  width: 100%;
+  text-align: center;
+  margin-top: 20px;
+}
+
+h2 {
+  text-align: center;
+  font-size: 24px;
+  text-decoration: underline;
+  padding-bottom: 20px;
 }
 
 .navelement {
@@ -52,8 +63,38 @@ header .navbar li{
 }
 
 #logo {
- width: 110px;
+ width: 130px;
  display: inline;
  float: left;
  padding: 10px;
+}
+
+main {
+  margin: auto 0;
+  max-height: 100%;
+}
+
+label {
+  font-size: 24px;
+}
+
+input, label {
+  width: 90%;
+  display: block;
+  text-align: center;
+  margin: 0 auto;
+}
+
+input {
+  height: 30px;
+  font-size: 24px;
+}
+
+select {
+  height: 36px;
+  font-size: 30px;
+  text-align: center;
+  border: 2px solid black;
+  margin: 10px auto;
+  display: block;
 }

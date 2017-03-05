@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Memini</title>
     <%= csrf_meta_tags %>
 
@@ -10,16 +11,19 @@
 
   <body>
     <header>
-      <%= image_tag 'logo', id: "logo" %>
-
+      <% if current_user %>
+        <%= link_to image_tag('logo', id: "logo"), account_path(current_user) %>
+      <% else %>
+        <%= link_to image_tag('logo', id: "logo"), root_path %>
+      <% end %>
       <nav class="navbar">
           <ul class="navlist">
             <% if current_user %>
               <li class="navelement"><%= link_to "My Account", account_path(current_user.id) %></li>
               <li class="navelement"><%= link_to "Sign Out", :logout, method: :post %></li>
             <% else %>
-              <li class="navelement"><%= link_to "Sign In", new_account_session_path %></li>
-              <li class="navelement"><%= link_to "Registration", new_account_path %></li>
+              <li class="navelement"><%= link_to "Log In", new_account_session_path %></li>
+              <li class="navelement"><%= link_to "Sign Up", new_account_path %></li>
             <% end %>
           </ul>
       </nav>
