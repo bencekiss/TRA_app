@@ -5,7 +5,7 @@ Primary Phone: <%= @schedule.account.phone %><br>
 
 
 <p id="notice"><%= notice %></p>
-<p>This scheduled notification started at <%= @schedule.schedule_time.utc %></p>
+<p>This scheduled notification started at <%= @schedule.schedule_time.utc.to_formatted_s(:long_ordinal) %></p>
 <p>with a frequency of <em><%= @schedule.frequency_hours %></em> hours.</p>
 <%= link_to 'Edit', edit_account_schedule_path(@account.id, @schedule.id) %> |
 <%= link_to 'Back', account_path(@account.id) %>

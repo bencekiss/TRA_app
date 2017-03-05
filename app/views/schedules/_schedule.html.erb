@@ -8,7 +8,7 @@
   <tbody>
     <% schedules.each do |schedule| %>
       <tr>
-        <td><%= link_to schedule.schedule_time, account_schedule_path(@account.id, schedule.id) %></td>
+        <td><%= link_to "#{schedule.schedule_time.hour}:00", account_schedule_path(@account.id, schedule.id) %></td>
         <td><%= link_to 'Edit', edit_account_schedule_path(@account.id, schedule.id) %></td>
         <td><%= link_to 'Destroy', account_schedule_path(@account.id, schedule.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
