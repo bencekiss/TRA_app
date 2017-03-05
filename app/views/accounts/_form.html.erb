@@ -1,75 +1,80 @@
 <%= form_for(account) do |f| %>
-  <% if account.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(account.errors.count, "error") %> prohibited this account from being saved:</h2>
-      <ul>
-      <% account.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-  <div class="caregivers">
-    <br>
-    <h2>-Your Information-</h2>
-    <div class="field">
-      <%= f.label :name, "Name" %><br>
-      <%= f.text_field :name, placeholder: "eg. Queen Elizabeth II" %>
-    </div>
-    <div class="field">
-      <%= f.label :phone, "Phone Number" %><br>
-      <%= f.text_field :phone, placeholder: "eg. +12345678910", required: true %>
-    </div>
-    <div class="field">
-      <%= f.label :email, "Email address" %><br>
-      <%= f.text_field :email, placeholder: "eg. ex@mp.le", required: true %>
-    </div>
-    <div class="field">
-      <%= f.label :password, "Password" %><br>
-      <%= f.password_field :password, required: true %>
-    </div>
-    <p class="secondary-next">Next >></p>
-  </div>
-  <div class="secondary-caregiver">
-    <h2>Secondary Caregiver Info</h2>
-    <div class="field">
-      <%= f.label :secondary_name, "Secondary Caregiver's Name" %><br>
-      <%= f.text_field :secondary_name, placeholder: "eg. Johnny Black" %>
-    </div>
-    <div class="field">
-      <%= f.label :secondary_phone, "Secondary Caregiver's Phone" %><br>
-      <%= f.text_field :secondary_phone, placeholder: "416-555-1234" %>
-    </div>
-    <div class="emergency-contact">
-      <div class="field">
-        <%= f.label :emergency_name, "Emergency Caregiver's Name" %><br>
-        <%= f.text_field :emergency_name, placeholder: "eg. Jane White" %>
-      </div>
-      <div class="field">
-        <%= f.label :emergency_phone, "Secondary Caregiver's Phone" %><br>
-        <%= f.text_field :emergency_phone, placeholder: "416-555-1234" %>
-      </div>
-    </div>
-    <p class="emerge-next">Next >></p>
-  </div>
-  <div class="patient">
-    <h2>Patient info</h2>
-    <div class="field">
-      <%= f.label :patient_name, "Patient's Name" %><br>
-      <%= f.text_field :patient_name, placeholder: "eg. Johnny Black" %>
-    </div>
-    <div class="field">
-      <%= f.label :patient_number, "Patient's Phone Number" %><br>
-      <%= f.text_field :patient_number, placeholder: "eg. +12345678910" %>
-    </div>
-    <div class="field">
-      <%= f.label :patient_address, "Patient's Home Address" %><br>
-      <%= f.text_field :patient_address, placeholder: "eg. 101 College st, apt. 203" %>
-    </div>
-    <div class="field">
-      <%= f.label :patient_notes, "Patient Notes (Information to send to caregivers in case of emergency)" %><br>
-      <%= f.text_area :patient_notes, placeholder: "eg. the extra key is under the flowerpot!" %>
-    </div>
-    <%= f.submit %>
-  </div>
+ <% if account.errors.any? %>
+   <div id="error_explanation">
+     <h2><%= pluralize(account.errors.count, "error") %> prohibited this account from being saved:</h2>
+     <ul>
+     <% account.errors.full_messages.each do |message| %>
+       <li><%= message %></li>
+     <% end %>
+     </ul>
+   </div>
+ <% end %>
+ <div class="caregivers">
+   <br>
+   <h2>-Your Information-</h2>
+   <div class="field">
+     <%= f.label :name, "Name" %><br>
+     <%= f.text_field :name, placeholder: "eg. Queen Elizabeth II" %>
+   </div>
+   <div class="field">
+     <%= f.label :phone, "Phone Number" %><br>
+     <%= f.text_field :phone, placeholder: "eg. +12345678910", required: true %>
+   </div>
+   <div class="field">
+     <%= f.label :email, "Email address" %><br>
+     <%= f.text_field :email, placeholder: "eg. ex@mp.le", required: true %>
+   </div>
+   <div class="field">
+     <%= f.label :password, "Password" %><br>
+     <%= f.password_field :password, required: true %>
+   </div>
+   <p class="secondary-next">Next >></p>
+ </div>
+</div>
+
+</div>
+ <div class="secondary-caregiver">
+   <h2>Secondary Caregiver Info</h2>
+   <div class="field">
+     <%= f.label :secondary_name, "Secondary Caregiver's Name" %><br>
+     <%= f.text_field :secondary_name, placeholder: "eg. Johnny Black" %>
+   </div>
+   <div class="field">
+     <%= f.label :secondary_phone, "Secondary Caregiver's Phone" %><br>
+     <%= f.text_field :secondary_phone, placeholder: "416-555-1234" %>
+   </div>
+   <div class="emergency-contact">
+     <div class="field">
+       <%= f.label :emergency_name, "Emergency Caregiver's Name" %><br>
+       <%= f.text_field :emergency_name, placeholder: "eg. Jane White" %>
+     </div>
+     <div class="field">
+       <%= f.label :emergency_phone, "Emergency Contact's Phone" %><br>
+       <%= f.text_field :emergency_phone, placeholder: "416-555-1234" %>
+     </div>
+   </div>
+   <p class="emerge-next">Next >></p>
+   <p class="third-back"><< Back</p>
+ </div>
+ <div class="patient">
+   <h2>Patient info</h2>
+   <div class="field">
+     <%= f.label :patient_name, "Patient's Name" %><br>
+     <%= f.text_field :patient_name, placeholder: "eg. Johnny Black" %>
+   </div>
+   <div class="field">
+     <%= f.label :patient_number, "Patient's Phone Number" %><br>
+     <%= f.text_field :patient_number, placeholder: "eg. +12345678910" %>
+   </div>
+   <div class="field">
+     <%= f.label :patient_address, "Patient's Home Address" %><br>
+     <%= f.text_field :patient_address, placeholder: "eg. 101 College st, apt. 203" %>
+   </div>
+   <div class="field">
+     <%= f.label :patient_notes, "Patient Notes (Information to send to caregivers in case of emergency)" %><br>
+     <%= f.text_area :patient_notes, placeholder: "eg. the extra key is under the flowerpot!" %>
+   </div>
+     <p class="fourth-back"><< Back</p>
+   <%= f.submit %>
+ </div>
 <% end %>
