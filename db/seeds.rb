@@ -17,3 +17,7 @@ Account.create({name: "Yuri",
                patient_name: "Alex",
                patient_number: "+14164344772",
                patient_notes: "Key in the mailbox"})
+
+Schedule.create({account_id: 1, schedule_time: Time.now + 1800, frequency_hours: 24})
+Schedule.create({account_id: 1, schedule_time: Time.now + 2400, frequency_hours: 24})
+Schedule.create({account_id: 1, schedule_time: Time.now + 3600, frequency_hours: 24})               
