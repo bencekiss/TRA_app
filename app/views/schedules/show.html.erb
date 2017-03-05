@@ -1,4 +1,9 @@
 <p id="notice"><%= notice %></p>
 
-<%= link_to 'Edit', edit_schedule_path(@schedule) %> |
-<%= link_to 'Back', schedules_path %>
+Patient Name: <%= @schedule.account.patient_name %><br>
+Frequency: <%= @schedule.frequency_hours %><br>
+Primary Phone: <%= @schedule.account.phone %><br>
+<br>
+<%= link_to 'Edit', edit_account_schedule_path(@schedule) %> |
+<%= link_to 'Back', account_schedules_path %>
+<%= console %>
