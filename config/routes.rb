@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
   root 'account_sessions#new'
   resources :accounts do
+    resources :confirmations, only: [:new, :create]
     resources :schedules
     resources :messages, only: [:new, :create, :index, :show] do
       post 'send_message'

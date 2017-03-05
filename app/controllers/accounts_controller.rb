@@ -26,15 +26,13 @@ class AccountsController < ApplicationController
   def create
     @account = Account.new(account_params)
 
-    respond_to do |format|
       if @account.save
-        format.html { redirect_to @account, notice: 'Account was successfully created.' }
-        format.json { render :show, status: :created, location: @account }
+        session[:account_id] = @account.id
+        Account.send_confirmation_to(@account)
+        redirect_to new_account_confirmation_path(@account), notice: 'Please verify your phone number.'
       else
-        format.html { render :new }
-        format.json { render json: @account.errors, status: :unprocessable_entity }
+        render :new
       end
-    end
   end
 
   # PATCH/PUT /accounts/1
