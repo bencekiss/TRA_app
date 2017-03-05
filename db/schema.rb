@@ -53,7 +53,6 @@ ActiveRecord::Schema.define(version: 20170304185743) do
   end
 
   create_table "schedules", force: :cascade do |t|
-    t.text     "template"
     t.integer  "account_id"
     t.datetime "schedule_time"
     t.integer  "frequency_hours", default: 24

@@ -2,11 +2,13 @@ class Schedule < ApplicationRecord
   has_many :messages
   belongs_to :account
 
+
+
   def self.send_reminders
     schedules = Schedule.all
     schedules.each do |schedule|
-      if Time.now.hour.utc == schedule.schedule_time.hour
-        Message.send_message(schedule.account.phone, create_primary_template, schedule.id)
+      if Time.now.utc.hour == schedule.schedule_time.hour
+        Message.send_message(schedule.account.phone, schedule.create_primary_template, schedule.id)
       end
     end
   end
