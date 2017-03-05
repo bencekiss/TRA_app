@@ -9,7 +9,7 @@ class ConfirmationsController < ApplicationController
       @account.update(verification: "verified")
       session[:authenticated] = true
       flash[:notice] = "Welcome #{@account.name}!"
-      redirect_to new_account_schedule_path
+      redirect_to :account_setup
     else
       flash.now[:error] = "Verification code is incorrect"
       render :new

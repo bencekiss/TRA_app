@@ -31,6 +31,7 @@ class AccountsController < ApplicationController
         session[:account_id] = @account.id
         Account.send_confirmation_to(@account)
         redirect_to new_account_confirmation_path(@account), notice: 'Please verify your phone number.'
+        login(params[:account][:email], params[:account][:password])
       else
         render :new
       end

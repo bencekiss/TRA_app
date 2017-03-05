@@ -1,5 +1,6 @@
 class Account < ApplicationRecord
   authenticates_with_sorcery!
+  validates :email, uniqueness: true, email_format: { message: 'has invalid format' }
   has_many :messages, through: :schedules
   has_many :schedules
 
