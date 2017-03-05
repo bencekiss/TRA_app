@@ -60,6 +60,7 @@ header {
   height: 50px;
   width: 100%;
   display: block;
+  margin-bottom: 20px;
 }
 
 header .navbar li{
@@ -69,10 +70,28 @@ header .navbar li{
   padding: 10px 5px 5px 5px;
 }
 
+.logo-wrapper {
+  width: 49%;
+  float: left;
+  display: inline;
+}
+
+.navlist {
+  width: 49%;
+  float: right;
+  display: inline;
+  margin: 0;
+}
+
+.navlist a {
+  float: right;
+  margin: 0 5px;
+}
+
 #logo {
  width: 130px;
  display: inline;
- float: left;
+ /*float: left;*/
  padding: 10px;
 }
 

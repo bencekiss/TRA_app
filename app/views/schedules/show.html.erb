@@ -6,7 +6,6 @@
   Primary Phone: <%= number_to_phone(@schedule.account.phone.to_i) %><br>
   <br>
 
-
   <p id="notice"><%= notice %></p>
   <p>This scheduled notification started at <%= @schedule.schedule_time.utc.to_formatted_s(:long_ordinal) %></p>
   <p>with a frequency of <em><%= @schedule.frequency_hours %></em> hours.</p>
