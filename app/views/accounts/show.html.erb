@@ -1,3 +1,4 @@
+<% if current_user && current_user.id == @account.id %>
 <p id="notice"><%= notice %></p>
 <h2>Account Details</h2>
 <p><strong>Patient name:</strong> <%= @account.patient_name %></p>
@@ -15,4 +16,7 @@
 
 <h2>Schedules</h2>
 <%= render '/schedules/schedule', schedules: @account.schedules %>
-<%= console %>
+<% elsif current_user %>
+<%= link_to "Go to your account", account_path(current_user) %>
+<% else %>
+<% end %>

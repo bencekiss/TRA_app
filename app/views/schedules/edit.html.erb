@@ -1,6 +1,12 @@
 <h1>Editing Schedule</h1>
 
+<% if current_user && current_user.id == @schedule.account.id %>
+
 <%= render 'form', schedule: @schedule %>
 
 <%= link_to 'Show', account_schedule_path %> |
 <%= link_to 'Back', account_schedules_path %>
+<% elsif current_user %>
+<%= link_to "Go to your account", account_path(current_user) %>
+<% else %>
+<% end %>
