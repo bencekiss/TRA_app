@@ -1,3 +1,30 @@
 // Place all the styles related to the Schedules controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.off{
+  display: none;
+}
+
+.on {
+  display: block;
+}
+.trigger_container{
+  text-align: center;
+}
+.trigger{
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+.messages{
+  overflow: hidden;
+  text-align: justify;
+}
+.message{
+
+  border: 1px solid darkgrey;
+  border-radius: 15px;
+  p{
+    margin: 0;
+    padding: 5px;
+  }
+}

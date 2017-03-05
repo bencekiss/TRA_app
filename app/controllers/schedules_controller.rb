@@ -34,9 +34,9 @@ class SchedulesController < ApplicationController
     @account = Account.find(params[:account_id])
     @schedule = Schedule.find(params[:id])
     @incoming_messages = Message.where("schedule_id = ? AND status = ?", @schedule.id, "received")
-    @sent_messages = Message.where("schedule_id = ? AND status = ?", @schedule.id, "delivered")
+    @notyet_messages = Message.where("schedule_id = ? AND status = ?", @schedule.id, "delivered")
     @answered_messages = Message.where("schedule_id = ? AND status = ?", @schedule.id, "replied")
-
+    @not_messages = Message.where("schedule_id = ? AND status = ?", @schedule.id, "no_reply")
 
   end
 
