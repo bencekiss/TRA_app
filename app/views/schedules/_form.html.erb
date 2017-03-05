@@ -13,7 +13,7 @@
 
   <div class="field">
     <%= f.label :schedule_time, "When would you like us to check in?" %>
-    <%= f.time_select :schedule_time, discard_minute: true %><br>
+    <%= f.time_select :schedule_time, discard_minute: true, ampm: true %><br>
     <%= f.hidden_field :account_id %>
   </div>
 

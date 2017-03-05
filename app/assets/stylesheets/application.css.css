@@ -41,8 +41,15 @@ h1 {
 h2 {
   text-align: center;
   font-size: 24px;
-  text-decoration: underline;
   padding-bottom: 20px;
+}
+
+.signup {
+  text-align: center;
+  font-size: 24px;
+  padding-bottom: 20px;
+  text-decoration: none;
+
 }
 
 .navelement {
