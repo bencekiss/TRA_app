@@ -138,37 +138,37 @@ class Schedule < ApplicationRecord
   end
 
   def create_primary_template
-    body = "Hi there #{self.account.name}. Have you checked up on #{self.account.patient_name} recently? Reply YES to confirm."
+    body = "Hi there #{self.account.name}. Have you checked up on #{self.account.patient_name} recently? Reply YES to confirm. This is an automated message."
     body
   end
 
   def create_primary_rescue
-    body = "Hello again, #{self.account.name}. We haven't heard back from you. Are you ok? Reply YES to confirm."
+    body = "Hello again, #{self.account.name}. We haven't heard back from you. Are you ok? Reply YES to confirm. This is an automated message."
     body
   end
 
   def create_primary_notification
-    body = "Hi #{self.account.name}. Because we haven't heard from you, we messaged #{self.account.secondary_name}. Please contact #{self.account.secondary_name} when you get this."
+    body = "Hi #{self.account.name}. Because we haven't heard from you, we messaged #{self.account.secondary_name}. Please contact #{self.account.secondary_name} when you get this. This is an automated message."
     body
   end
 
   def create_primary_emergency_notification
-    body = "Hi there #{self.account.name}. Because we haven't heard from you, or #{self.account.secondary_name}, we've notified #{self.account.emergency_name} that there may be an emergency. Please contact #{self.account.emergency_name} as soon as you get this."
+    body = "Hi there #{self.account.name}. Because we haven't heard from you, or #{self.account.secondary_name}, we've notified #{self.account.emergency_name} that there may be an emergency. Please contact #{self.account.emergency_name} as soon as you get this. This is an automated message."
     body
   end
 
   def create_secondary_template
-    body = "Hi #{self.account.secondary_name}. We haven't heard from #{self.account.name} today. Please check on #{self.account.patient_name}."
+    body = "Hi #{self.account.secondary_name}. We haven't heard from #{self.account.name} today. Please check on #{self.account.patient_name}. This is an automated message."
     body
   end
 
   def create_secondary_rescue
-    body = "Hello #{self.account.secondary_name}. We haven't heard back from you. Are you ok? Reply YES to confirm, and check on #{self.account.patient_name} as soon as you can."
+    body = "Hello #{self.account.secondary_name}. We haven't heard back from you. Are you ok? Reply YES to confirm, and check on #{self.account.patient_name} as soon as you can. This is an automated message."
     body
   end
 
   def create_emergency_template
-    body = "EMERGENCY: Hi #{self.account.emergency_name}. We haven't heard from #{self.account.patient_name}'s caregiver. Can you check on #{self.account.patient_name} at #{self.account.patient_address}? Or you can reach them at #{self.account.patient_number}. In case of an emergency please call 911."
+    body = "EMERGENCY: Hi #{self.account.emergency_name}. We haven't heard from #{self.account.patient_name}'s caregiver today. Can you check on #{self.account.patient_name} at #{self.account.patient_address}? Or you can reach them at #{self.account.patient_number}. In case of an emergency please call 911. This is an automated message."
     body
   end
 
