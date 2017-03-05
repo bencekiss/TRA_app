@@ -78,14 +78,14 @@ label {
   font-size: 24px;
 }
 
-input, label {
+input, label, textarea {
   width: 90%;
   display: block;
   text-align: center;
   margin: 0 auto;
 }
 
-input {
+input, textarea {
   height: 30px;
   font-size: 24px;
 }
