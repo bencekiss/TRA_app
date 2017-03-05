@@ -17,3 +17,16 @@ Account.create({name: "Yuri",
                patient_name: "Alex",
                patient_number: "+14164344772",
                patient_notes: "Key in the mailbox"})
+
+Account.create({name: "Alex",
+              email: "me@alexf.ca",
+              phone: "+14164344772",
+              password: "password",
+              secondary_name: "Blah",
+              secondary_phone: "+14164283530",
+              secondary_email: "test1@gmail.com",
+              emergency_name: "Gee",
+              emergency_phone: "+14164283530",
+              patient_name: "Alex",
+              patient_number: "+16475299874",
+              patient_notes: "Key in the mailbox"})

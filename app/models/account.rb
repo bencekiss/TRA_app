@@ -5,7 +5,7 @@ class Account < ApplicationRecord
 
   #generates random number for account verification process
   def self.generate
-    rand(10000..999999).to_s
+    rand(100000..999999).to_s
   end
 
   def self.send_confirmation_to(account)
