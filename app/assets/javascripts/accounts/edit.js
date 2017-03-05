@@ -14,4 +14,14 @@ $(document).on("turbolinks:load",function(){
     $('.caregivers').fadeOut();
     $('.patient').fadeIn();
   });
+  $('.secondary-next').on('click', function(){
+    $('.secondary-caregiver').fadeIn();
+    $('.caregivers').fadeOut();
+    $('.patient').fadeOut();
+  });
+  $('.emerge-next').on('click', function(){
+    $('.secondary-caregiver').fadeOut();
+    $('.caregivers').fadeOut();
+    $('.patient').fadeIn();
+  });
 });

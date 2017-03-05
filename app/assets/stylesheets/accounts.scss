@@ -12,3 +12,21 @@
 .patient{
   display: none;
 }
+
+.prime:hover, .emerge:hover, .secondary:hover {
+  font-size: 1.1em;
+  cursor: pointer;
+}
+
+.secondary-next {
+  font-size: 1.2em;
+  cursor: pointer;
+  background-color: teal;
+  display: inline;
+  padding: 5px;
+  border: 2px solid black;
+
+  border-radius: 10px;
+  color: white;
+  margin-left: 45%;
+}
