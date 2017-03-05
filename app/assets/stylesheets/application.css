@@ -167,3 +167,20 @@ td {
 .navlist{
   padding-top: 10px;
 }
+
+.third-back, .fourth-back {
+
+ font-size: 1.2em;
+ cursor: pointer;
+ background-color: teal;
+ display: inline-block;
+ padding: 5px;
+ margin-left: 0px;
+ border: 2px solid black;
+ border-radius: 10px;
+ color: white;
+
+}
+.fourth-back{
+margin-left: 45%;
+}
