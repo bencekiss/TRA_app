@@ -1,6 +1,10 @@
 // Place all the styles related to the Accounts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.account-details{
+  text-align: center;
+}
+
 .secondary-caregiver{
   display: none;
 }
@@ -18,7 +22,7 @@
   cursor: pointer;
 }
 
-.secondary-next {
+.secondary-next, .emerge-next {
   font-size: 1.2em;
   cursor: pointer;
   background-color: teal;
@@ -29,4 +33,14 @@
   border-radius: 10px;
   color: white;
   margin-left: 45%;
+}
+
+.schedule {
+  text-align: center;
+}
+
+.schedule table{
+  width: 50%;
+  margin:auto;
+
 }

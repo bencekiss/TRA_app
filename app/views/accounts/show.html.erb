@@ -1,23 +1,26 @@
 <% if current_user && current_user.id == @account.id %>
 <p id="notice"><%= notice %></p>
-<h2>Account Details</h2>
-<p><strong>Patient name:</strong> <%= @account.patient_name %></p>
-<p><strong>Patient phone number:</strong> <%= @account.patient_number %></p>
-<p><strong>Patient address:</strong> <%= @account.patient_address %></p>
-<p><strong>Patient notes:</strong> <%= @account.patient_notes %></p>
-<p>The primary caregiver is currently set to <%= @account.name %>.</p>
-<p>The primary phone number is <%= @account.phone %>.</p>
-<p>The secondary caregiver is set to <%= @account.secondary_name %>.</p>
-<p>The secondary phone number is <%= @account.secondary_phone %>.</p>
-<p>The emergency contact is set to <%= @account.emergency_name %>.</p>
-<p>The emergency phone number is <%= @account.emergency_phone %>.<p>
-<%= link_to 'Edit', edit_account_path(@account) %> |
-<%= link_to 'Back', accounts_path %>
-
+<div class="account-details">
+  <h2>Account Details</h2>
+  <p><strong>Patient name:</strong> <%= @account.patient_name %></p>
+  <p><strong>Patient phone number:</strong> <%= @account.patient_number %></p>
+  <p><strong>Patient address:</strong> <%= @account.patient_address %></p>
+  <p><strong>Patient notes:</strong> <%= @account.patient_notes %></p>
+  <p><strong>Primary caregiver:</strong> <%= @account.name %>.</p>
+  <p><strong>Primary phone:</strong><%= @account.phone %>.</p>
+  <p><strong>Secondary caregiver:</strong> <%= @account.secondary_name %>.</p>
+  <p><strong>Secondary phone:</strong> <%= @account.secondary_phone %>.</p>
+  <p><strong>Emergency caregiver:</strong> <%= @account.emergency_name %>.</p>
+  <p><strong>Emergency phone:</strong> <%= @account.emergency_phone %>.<p>
+  <%= link_to 'Edit', edit_account_path(@account) %> |
+  <%= link_to 'Back', accounts_path %>
+</div>
+<div class="schedule">
 <h2>Schedules</h2>
-<%= link_to "Create a new schedule", new_account_schedule_path(current_user) %>
-<%= render '/schedules/schedule', schedules: @account.schedules %>
+  <%= link_to "Create a new schedule", new_account_schedule_path(current_user) %>
+  <%= render '/schedules/schedule', schedules: @account.schedules %>
 <% elsif current_user %>
-<%= link_to "Go to your account", account_path(current_user) %>
+  <%= link_to "Go to your account", account_path(current_user) %>
 <% else %>
 <% end %>
+</div>
