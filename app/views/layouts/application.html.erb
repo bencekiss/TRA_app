@@ -16,7 +16,7 @@
           <div class="logo-wrapper">
           <% if current_user %>
             <% unless @hide = false %>
-            <%= link_to image_tag('logo', id: "logo"), account_path(current_user), class: "head-link" %>
+            <%= link_to image_tag('logo_white', id: "logo"), account_path(current_user), class: "head-link" %>
           <% else %>
             <%= link_to image_tag('logo', id: "logo"), root_path, class: "head-link"%>
             <% end %>

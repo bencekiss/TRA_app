@@ -18,7 +18,7 @@ class AccountSessionsController < ApplicationController
 
   def create
     if @account = login(params[:email], params[:password])
-      redirect_back_or_to(account_path(@account.id), notice: 'Logged in')
+      redirect_back_or_to(account_path(@account.id))
     else
       flash.now[:alert] = 'Unsuccessful login'
       render action: 'new'
