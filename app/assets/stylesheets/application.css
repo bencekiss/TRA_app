@@ -20,6 +20,15 @@
   font-family: helvetica, arial, sans-serif;
   font-weight: lighter;
   font-size: 16px;
+  color: white;
+}
+
+p, strong {
+  font-size: 28px;
+}
+
+p strong {
+  font-weight: bolder;
 }
 
 body {
@@ -37,7 +46,7 @@ h1 {
 
 h2 {
   text-align: center;
-  font-size: 24px;
+  font-size: 28px;
   padding-bottom: 20px;
 }
 
@@ -91,10 +100,11 @@ header .navbar li{
 }
 
 #logo {
- width: 130px;
+ width: 200px;
  display: inline;
  /*float: left;*/
  padding: 10px;
+ margin: auto;
 }
 
 main {
@@ -112,30 +122,27 @@ label {
   font-size: 20px;
 }
 
-.field label {
-  color: white;
-}
-
 form {
   padding: 20px;
 }
 
 input {
+  width: 300px;
   border-radius: 5px;
   background-color: white;
   border-style: solid;
   border-color: white;
   border-width: thin;
-  color: white;
+  color: black;
 }
 
-.actions {
-  width: 70%;
+.actions input {
+  width: 200px;
   margin: 0 auto;
+  border-radius: 20px;
 }
 
 input, label, textarea {
-  width: 70%;
   display: block;
   text-align: center;
   margin: 0 auto;
@@ -161,7 +168,6 @@ a{
   background-color: teal;
   border: 2px solid black;
   border-radius: 10px;
-  color: white;
 }
 
 a:hover {
@@ -204,8 +210,6 @@ td {
  margin-left: 0px;
  border: 2px solid black;
  border-radius: 10px;
- color: white;
-
 }
 .fourth-back{
 margin-left: 45%;
