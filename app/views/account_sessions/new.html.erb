@@ -1,8 +1,6 @@
 <div class="container">
-  <h1 class="headlines">Welcome to the Memini!</h1>
 
-  <br>
-  <h2 class="signup">Sign In</h2>
+  <%= image_tag 'logo', id: 'homepage-logo' %>
 
   <% flash.each do |key, message| %>
  <div id="alert!" class="flash-<%= key %>"><%= message %></div>

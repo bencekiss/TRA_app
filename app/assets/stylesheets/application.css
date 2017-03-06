@@ -18,15 +18,12 @@
   padding: 0;
   margin: 0;
   font-family: helvetica, arial, sans-serif;
+  font-weight: lighter;
   font-size: 16px;
 }
 
-html {
-  background-color: teal;
-}
-
 body {
-  background-color: white;
+  background: linear-gradient(right, teal, rgb(46, 150, 125));
   padding: 0px 10px 10px 10px;
   max-height: 100%;
 }
@@ -49,7 +46,12 @@ h2 {
   font-size: 24px;
   padding-bottom: 20px;
   text-decoration: none;
+}
 
+#homepage-logo {
+  margin: 0 auto;
+  display: block;
+  padding: 10px;
 }
 
 .navelement {
@@ -104,12 +106,36 @@ label {
   font-size: 24px;
 }
 
+.navlist a {
+  background: none;
+  border: none;
+  font-size: 20px;
+}
+
+.field label {
+  color: white;
+}
+
+form {
+  padding: 20px;
+}
+
 input {
   border-radius: 5px;
+  background-color: white;
+  border-style: solid;
+  border-color: white;
+  border-width: thin;
+  color: white;
+}
+
+.actions {
+  width: 70%;
+  margin: 0 auto;
 }
 
 input, label, textarea {
-  width: 90%;
+  width: 70%;
   display: block;
   text-align: center;
   margin: 0 auto;

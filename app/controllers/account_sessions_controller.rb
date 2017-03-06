@@ -1,10 +1,19 @@
 class AccountSessionsController < ApplicationController
+
+
   def new
+
     if current_user
       redirect_to account_path(current_user.id)
     else
+      # if request.original_url == root_url
+      #   hide = true
+      # else
+      #   hide = false
+      # end
+      @hide = true
       @account = Account.new
-    end
+  end
   end
 
   def create
@@ -18,6 +27,6 @@ class AccountSessionsController < ApplicationController
 
   def destroy
     logout
-    redirect_to(root_path, notice: 'Logged out')
+    redirect_to(root_path)
   end
 end
